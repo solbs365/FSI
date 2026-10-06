@@ -1,0 +1,47 @@
+explicacion.txt
+
+esta vacia? 
+extrae un nodo (el primero)
+este nodo que acabamos de extraer, su vertice es el vertice destino??
+si la respueta es negativa: 
+    expandimos (hijos) y los metemos en la lista (en orden alfabetico, o en cualquier otro orden)
+    sacamos el primero, el campo vertice es el objetivo? : No, expandimos
+
+
+BFS
+Basicamente son estos pasos: 
+    1. mirar si la lista esta vacia 
+        si esta vacia, metemos el primer nodo.
+        si no esta vacia, extraemos el nodo.
+        ¿es el destino? -> (No, expandimos)  (si, terminamos)
+
+    2. Miramos los hijos del nodo extraido y los metemos en la lista. 
+        extraemos el primer nodo de la lista
+        es el destino? no, expandimos...
+
+DFS (profundidad)
+Lo mismo pero exploramos la rama completa de cada hijo (hasta abajo)
+
+
+
+La practica tiene 2 enunciados principales.
+    Añadir al codigo : un contador de los nodos que han sido visitados y los nodos que han sido generados (donde se crean los nodos) - En la funcion graph_search y contar 
+    los nodos que han sido resultados de una expansion.
+
+Primera parte de la practica: 
+Estrategia de busqueda que hay que añadir: 
+    Ramificacion y acotacion sin subestimacion (ahora vamos a tener en cuenta los numeritos costos)
+
+    - camino Optimo es el camino que minimiza el coste
+    El primer nodo lo meto en la lista ej: A1 / 0   (ahora metemos un /0)
+    ¿Esta la lista vacia? - No, extraigo
+    ¿Apunta al vertice objetivo? - No, expando y pongo el costo acumulado 
+
+    Hay 2 numeros, uno es el coste y el otro son costes acumulados. Al meter los nodos en la lista se ordenan por los costos acumulados (de menor a mayor)
+
+
+
+Tenemos una cola 
+
+recorremos cada nodo y miramos su coste si no esta en la lista lo metemos. Si esta en la lista y su coste es 
+menor, 
