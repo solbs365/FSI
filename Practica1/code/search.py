@@ -89,7 +89,7 @@ class Node:
                      problem.path_cost(self.path_cost, self.state, act, next))
                 for (act, next) in problem.successor(self.state)]
 
-
+    
 # ______________________________________________________________________________
 ## Uninformed Search algorithms
 
@@ -108,9 +108,6 @@ def graph_search(problem, fringe):
             fringe.extend(node.expand(problem))
     return None
 
-# Implementación de Ramificacion y acotacion sin subestimacion
-def ramificacion_y_acotacion_sin_subestimacion(problem, visited_queue):
-
 
 def breadth_first_graph_search(problem):
     """Search the shallowest nodes in the search tree first. [p 74]"""
@@ -121,6 +118,10 @@ def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
 
+
+def ramificacion_y_acotacion_sin_subestimacion(problem):
+    """Búsqueda de Ramificación y acotación sin subestimación."""
+    return graph_search(problem, PriorityQueue())
 
 
 # _____________________________________________________________________________

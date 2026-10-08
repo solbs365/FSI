@@ -544,6 +544,24 @@ class FIFOQueue(Queue):
         return e
 
 
+class PriorityQueue(Queue):
+    """Una cola que extrae siempre el nodo con el menor path_cost."""
+    def __init__(self):
+        self.A = []
+
+    def append(self, item):
+        self.A.append(item)
+
+    def extend(self, items):
+        self.A.extend(items)
+
+    def pop(self):
+        # Ordenamos la lista de menor a mayor coste antes de extraer
+        self.A.sort(key=lambda node: node.path_cost)
+        return self.A.pop(0)
+
+    def __len__(self):
+        return len(self.A)
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
