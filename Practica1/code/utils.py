@@ -1,3 +1,4 @@
+import math
 
 #______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
@@ -359,7 +360,8 @@ def distance(xxx_todo_changeme, xxx_todo_changeme1):
     "The distance between two (x, y) points."
     (ax, ay) = xxx_todo_changeme
     (bx, by) = xxx_todo_changeme1
-    return math.hypot((ax - bx), (ay - by))
+    return math.hypot((
+        ax - bx), (ay - by))
 
 
 def distance2(xxx_todo_changeme2, xxx_todo_changeme3):

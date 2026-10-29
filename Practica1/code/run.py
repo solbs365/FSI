@@ -23,6 +23,12 @@ if rya:
     print("Ruta:", rya.path(), "Coste:", rya.path_cost)
 
 
+print("\nRamificación y Acotación con subestimación")
+rya_sub = search.ramificacion_y_acotacion_con_subestimacion(ab)
+if rya_sub: 
+    print("Ruta:", rya_sub.path(), "Coste:", rya_sub.path_cost)
+
+
 # Result:
 # [<Node B>, <Node P>, <Node R>, <Node S>, <Node A>] : 101 + 97 + 80 + 140 = 418
 # [<Node B>, <Node F>, <Node S>, <Node A>] : 211 + 99 + 140 = 450
