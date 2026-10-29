@@ -97,14 +97,20 @@ def graph_search(problem, fringe):
     """Search through the successors of a problem to find a goal.
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
+
     closed = {} # Diccionario visitados
+    nodos_expandidos = 0  # Inicializamos el contador
     fringe.append(Node(problem.initial))
+
     while fringe:
         node = fringe.pop()
         if problem.goal_test(node.state):
+            print(f"Nodos expandidos: {nodos_expandidos}")
             return node
+        
         if node.state not in closed:    # comprueba si ese nodo ha sido visitado (esto no se hace en la forma teorica)
             closed[node.state] = True
+            nodos_expandidos += 1   # sumamos 1 cada vez que un nodo se va a expandir
             fringe.extend(node.expand(problem))
     return None
 
@@ -122,6 +128,11 @@ def depth_first_graph_search(problem):
 def ramificacion_y_acotacion_sin_subestimacion(problem):
     """Búsqueda de Ramificación y acotación sin subestimación."""
     return graph_search(problem, PriorityQueue())
+
+def ramificacion_y_acotacion_con_subestimacion(problem):
+    """Búsqueda informada usando coste acumulado + heurística (A*)."""
+    # Pasamos el problema a la cola para que pueda calcular h(n)
+    return graph_search(problem, AStarQueue(problem))
 
 
 # _____________________________________________________________________________

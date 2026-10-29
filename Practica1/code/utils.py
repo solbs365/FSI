@@ -563,6 +563,29 @@ class PriorityQueue(Queue):
     def __len__(self):
         return len(self.A)
 
+
+class AStarQueue(Queue):
+    """Cola de prioridad para Ramificación y Acotación con subestimación (A*).
+    Ordena los nodos por f(n) = g(n) + h(n) """
+
+    def __init__(self, problem):
+        self.A = []
+        self.problem = problem
+
+    def append(self, item):
+        self.A.append(item)
+
+    def extend(self, items):
+        self.A.extend(items)
+
+    def pop(self):
+        # f(n) = node.path_cost + self.problem.h(node)
+        self.A.sort(key=lambda node: node.path_cost + self.problem.h(node))
+        return self.A.pop(0)
+
+    def __len__(self):
+        return len(self.A)
+
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
 Fig = {}
